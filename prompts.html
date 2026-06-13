@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>قريباً | حزمة برومبتات المحتوى الاحترافية — حكاية</title>
+
+<!--
+  ════════════════════════════════════════════════════════════
+   لتجميع الإيميلات فعلياً (خطوة واحدة مجانية):
+   1. ادخل formspree.io وسجّل (مجاني)
+   2. سوّ Form جديد، بياخذ منك رمز مثل  xyzabcd
+   3. استبدل  YOUR_FORM_ID  بالرمز في السطر تحت (داخل الكود)
+   * قبل ما تستبدله: الصفحة تشتغل بوضع المعاينة وتظهر رسالة نجاح
+     لكن ما تخزّن الإيميل. بعد ما تستبدله: تبدأ تجمع الإيميلات بصندوقك.
+  ════════════════════════════════════════════════════════════
+-->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --ink:#0c0a07;
+    --gold:#d4af6a;
+    --gold-soft:#caa45e;
+    --gold-deep:#8a6d35;
+    --parch:#ece3d2;
+    --muted:#9a8f7c;
+    --line:rgba(212,175,106,.18);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{min-height:100%}
+  body{
+    font-family:'Tajawal',sans-serif;
+    background:
+      radial-gradient(120% 80% at 50% -10%, rgba(212,175,106,.16) 0%, transparent 45%),
+      radial-gradient(90% 60% at 50% 120%, rgba(138,109,53,.10) 0%, transparent 55%),
+      var(--ink);
+    color:var(--parch);
+    display:flex;justify-content:center;
+    padding:44px 22px;min-height:100vh;
+    position:relative;overflow-x:hidden;
+  }
+  body::after{
+    content:"";position:fixed;inset:0;pointer-events:none;opacity:.04;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  .wrap{width:100%;max-width:480px;position:relative;z-index:1;text-align:center}
+
+  .brand-img{
+    display:block;width:200px;max-width:60%;height:auto;margin:0 auto 30px;
+    filter:drop-shadow(0 6px 26px rgba(212,175,106,.2));
+  }
+
+  .eyebrow{
+    display:inline-block;font-size:12px;letter-spacing:4px;color:var(--gold-soft);
+    text-transform:uppercase;border:1px solid var(--line);border-radius:999px;
+    padding:7px 16px;margin-bottom:22px;
+  }
+
+  h1{
+    font-family:'Amiri',serif;font-weight:700;font-size:34px;line-height:1.4;
+    color:var(--parch);margin-bottom:16px;
+  }
+  h1 .hl{color:var(--gold)}
+
+  .lede{font-size:16px;line-height:1.85;color:var(--muted);max-width:400px;margin:0 auto 30px}
+
+  .rule{width:54px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:0 auto 28px}
+
+  .inside{
+    text-align:right;max-width:380px;margin:0 auto 32px;
+    display:flex;flex-direction:column;gap:14px;
+  }
+  .inside .row{display:flex;align-items:flex-start;gap:12px;font-size:15.5px;line-height:1.6}
+  .inside .dot{color:var(--gold);font-size:15px;margin-top:4px;flex:0 0 auto}
+
+  /* نموذج الإيميل */
+  .signup{max-width:380px;margin:0 auto}
+  .signup .field{
+    display:flex;gap:10px;flex-direction:column;
+  }
+  input[type=email]{
+    width:100%;padding:16px 18px;border-radius:13px;
+    border:1px solid var(--line);background:rgba(255,255,255,.03);
+    color:var(--parch);font-family:'Tajawal',sans-serif;font-size:16px;text-align:right;
+    transition:border-color .18s ease;
+  }
+  input[type=email]::placeholder{color:#6f6759}
+  input[type=email]:focus{outline:none;border-color:rgba(212,175,106,.55)}
+
+  .btn{
+    padding:16px 20px;border-radius:13px;border:none;cursor:pointer;
+    background:linear-gradient(180deg,var(--gold) 0%,var(--gold-deep) 100%);
+    color:#1a1409;font-family:'Tajawal',sans-serif;font-weight:700;font-size:16px;
+    box-shadow:0 6px 22px rgba(212,175,106,.28);
+    transition:transform .18s ease, box-shadow .18s ease;
+  }
+  .btn:hover,.btn:focus-visible{transform:translateY(-2px);box-shadow:0 10px 30px rgba(212,175,106,.45);outline:none}
+  .btn:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+  .btn:disabled{opacity:.6;cursor:default;transform:none}
+
+  .note{font-size:12.5px;color:#6f6759;margin-top:14px}
+
+  /* رسالة النجاح */
+  .done{display:none;animation:rise .4s ease}
+  .done.show{display:block}
+  .done .check{font-size:40px;margin-bottom:12px}
+  .done h2{font-family:'Amiri',serif;color:var(--gold);font-size:24px;margin-bottom:10px}
+  .done p{color:var(--muted);font-size:15px;line-height:1.7}
+  @keyframes rise{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+
+  .back{
+    display:inline-block;margin-top:38px;font-size:14px;color:var(--muted);
+    text-decoration:none;border-bottom:1px solid transparent;transition:color .18s,border-color .18s;
+  }
+  .back:hover{color:var(--gold-soft);border-color:var(--line)}
+
+  @media (max-width:380px){ h1{font-size:28px} .brand{font-size:26px} }
+  @media (prefers-reduced-motion:reduce){ .btn,.done{transition:none;animation:none} .btn:hover{transform:none} }
+</style>
+</head>
+<body>
+  <main class="wrap">
+
+    <img class="brand-img" src="logo.png" alt="حكاية — Hikaya Studio Pro">
+
+    <!-- المحتوى قبل التسجيل -->
+    <div id="intro">
+      <span class="eyebrow">قريباً</span>
+      <h1>حزمة <span class="hl">برومبتات</span><br>المحتوى الاحترافية</h1>
+      <p class="lede">مكتبة برومبتات عربية جاهزة تختصر عليك ساعات — من الفكرة إلى السكربت إلى الصورة. اكتب محتوى احترافي بضغطة، حتى لو ما عندك خبرة.</p>
+
+      <div class="rule"></div>
+
+      <div class="inside">
+        <div class="row"><span class="dot">◆</span><span>برومبتات لكتابة سكربتات قصص قصيرة بخطّاف قوي</span></div>
+        <div class="row"><span class="dot">◆</span><span>برومبتات لتوليد صور ومشاهد بأسلوب سينمائي</span></div>
+        <div class="row"><span class="dot">◆</span><span>برومبتات للأفكار والعناوين والكابشن لكل منصة</span></div>
+        <div class="row"><span class="dot">◆</span><span>مصنّفة وجاهزة للنسخ واللصق مباشرة — بالعربي</span></div>
+      </div>
+
+      <form class="signup" id="form">
+        <div class="field">
+          <input type="email" id="email" placeholder="اكتب إيميلك هنا" required autocomplete="email">
+          <button class="btn" type="submit" id="submit">نبّهني عند الإطلاق</button>
+        </div>
+        <p class="note">سنرسل لك إشعاراً بالإطلاق وعرضاً خاصاً للأوائل. بدون إزعاج.</p>
+      </form>
+    </div>
+
+    <!-- بعد التسجيل -->
+    <div class="done" id="done">
+      <div class="check">🔓</div>
+      <h2>تم تسجيلك</h2>
+      <p>راح تكون من أوائل من يعرف عند إطلاق الدليل — ومعك عرض خاص بانتظارك.</p>
+    </div>
+
+    <a class="back" href="index.html">← رجوع إلى كل الروابط</a>
+
+  </main>
+
+<script>
+  // استبدل YOUR_FORM_ID برمز Formspree لتجميع الإيميلات فعلياً
+  var FORMSPREE_ID = "xojzpoaa";
+
+  var form = document.getElementById('form');
+  var intro = document.getElementById('intro');
+  var done = document.getElementById('done');
+  var submit = document.getElementById('submit');
+
+  function showSuccess(){
+    intro.style.display = 'none';
+    done.classList.add('show');
+  }
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var email = document.getElementById('email').value.trim();
+    if(!email) return;
+
+    // وضع المعاينة: ما تم ربط Formspree بعد
+    if(FORMSPREE_ID === "YOUR_FORM_ID"){
+      showSuccess();
+      return;
+    }
+
+    submit.disabled = true;
+    submit.textContent = "جارٍ التسجيل…";
+
+    fetch("https://formspree.io/f/" + FORMSPREE_ID, {
+      method:"POST",
+      headers:{ "Accept":"application/json", "Content-Type":"application/json" },
+      body: JSON.stringify({ email: email, product: "حزمة برومبتات المحتوى" })
+    }).then(function(r){
+      if(r.ok){ showSuccess(); }
+      else { throw new Error(); }
+    }).catch(function(){
+      submit.disabled = false;
+      submit.textContent = "حدث خطأ — حاول مرة أخرى";
+    });
+  });
+</script>
+</body>
+</html>

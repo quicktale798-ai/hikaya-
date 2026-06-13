@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>حكاية | Hikaya Studio Pro</title>
+
+<!--
+  ════════════════════════════════════════════════════════════
+   عدّل روابطك من هنا فقط (غيّر ما بين علامات " ")
+  ════════════════════════════════════════════════════════════
+   1. إيميل التعاون      → داخل href="mailto:..."
+   2. رابط الإنستقرام    → داخل href="..."
+   3. رابط دليل القصص    → داخل href="..."
+   4. رابط حزمة مَلَكَة   → داخل href="..."
+   * الشعار: ملف logo.png — استبدله بأي صورة بنفس الاسم لتغييره
+  ════════════════════════════════════════════════════════════
+-->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --ink:#0c0a07;          /* أسود دافئ سينمائي */
+    --ink-2:#15110b;
+    --gold:#d4af6a;         /* ذهبي حكاية */
+    --gold-soft:#caa45e;
+    --gold-deep:#8a6d35;
+    --parch:#ece3d2;        /* لون النص */
+    --muted:#9a8f7c;
+    --line:rgba(212,175,106,.18);
+  }
+
+  *{box-sizing:border-box;margin:0;padding:0}
+
+  html,body{min-height:100%}
+
+  body{
+    font-family:'Tajawal',sans-serif;
+    background:
+      radial-gradient(120% 80% at 50% -10%, rgba(212,175,106,.16) 0%, transparent 45%),
+      radial-gradient(90% 60% at 50% 120%, rgba(138,109,53,.10) 0%, transparent 55%),
+      var(--ink);
+    color:var(--parch);
+    display:flex;
+    justify-content:center;
+    padding:48px 22px 40px;
+    min-height:100vh;
+    position:relative;
+    overflow-x:hidden;
+  }
+
+  /* حبيبات فيلم خفيفة جداً تعطي إحساس سينمائي */
+  body::after{
+    content:"";
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    opacity:.04;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  .card{
+    width:100%;
+    max-width:440px;
+    position:relative;
+    z-index:1;
+    text-align:center;
+  }
+
+  /* ── الشعار ── */
+  .logo{
+    position:relative;
+    margin-bottom:26px;
+  }
+  .logo::before{ /* هالة ذهبية خلف الشعار */
+    content:"";
+    position:absolute;
+    inset:-30px 0 auto 0;
+    height:160px;
+    margin-inline:auto;
+    width:220px;
+    background:radial-gradient(closest-side, rgba(212,175,106,.30), transparent 70%);
+    filter:blur(8px);
+    z-index:-1;
+  }
+  .logo-img{
+    display:block;
+    width:78%;
+    max-width:320px;
+    height:auto;
+    margin:0 auto;
+    filter:drop-shadow(0 6px 30px rgba(212,175,106,.22));
+  }
+
+  .tagline{
+    font-size:16px;
+    color:var(--parch);
+    line-height:1.7;
+    margin:0 auto 6px;
+    max-width:330px;
+  }
+  .meta{
+    font-size:13px;
+    color:var(--muted);
+    letter-spacing:.3px;
+  }
+  .meta b{color:var(--gold-soft);font-weight:700}
+
+  /* خط فاصل ذهبي رفيع */
+  .rule{
+    width:54px;
+    height:1px;
+    background:linear-gradient(90deg,transparent,var(--gold),transparent);
+    margin:24px auto 28px;
+  }
+
+  /* ── الأزرار ── */
+  .links{display:flex;flex-direction:column;gap:14px}
+
+  .link{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+    padding:17px 20px;
+    border-radius:14px;
+    border:1px solid var(--line);
+    background:linear-gradient(180deg, rgba(255,255,255,.025), rgba(255,255,255,0));
+    color:var(--parch);
+    font-family:'Tajawal',sans-serif;
+    font-size:16px;
+    font-weight:500;
+    text-decoration:none;
+    transition:transform .18s ease, border-color .18s ease, box-shadow .18s ease, background .18s ease;
+  }
+  .link .ico{font-size:18px;line-height:1}
+
+  .link:hover,.link:focus-visible{
+    transform:translateY(-2px);
+    border-color:rgba(212,175,106,.5);
+    box-shadow:0 8px 26px rgba(0,0,0,.45), 0 0 0 1px rgba(212,175,106,.15);
+    outline:none;
+  }
+  .link:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+
+  /* الزر الأساسي: التعاون */
+  .link.primary{
+    background:linear-gradient(180deg, var(--gold) 0%, var(--gold-deep) 100%);
+    border-color:transparent;
+    color:#1a1409;
+    font-weight:700;
+    box-shadow:0 6px 22px rgba(212,175,106,.28);
+  }
+  .link.primary:hover,.link.primary:focus-visible{
+    box-shadow:0 10px 30px rgba(212,175,106,.45);
+    border-color:transparent;
+  }
+
+  .footer{
+    margin-top:30px;
+    font-size:12px;
+    color:var(--muted);
+    letter-spacing:.4px;
+  }
+  .footer span{color:var(--gold-deep)}
+
+  @media (max-width:380px){
+    .logo-img{max-width:270px}
+    .link{font-size:15px;padding:16px}
+  }
+
+  @media (prefers-reduced-motion:reduce){
+    .link{transition:none}
+    .link:hover,.link:focus-visible{transform:none}
+  }
+</style>
+</head>
+<body>
+  <main class="card">
+
+    <div class="logo">
+      <!-- لتغيير الشعار لصورتك استبدل السطرين بـ:
+           <img src="logo.png" alt="حكاية" style="width:120px;height:auto"> -->
+      <img class="logo-img" src="logo.png" alt="حكاية — Hikaya Studio Pro">
+    </div>
+
+    <p class="tagline">قصص سينمائية من التاريخ والعجائب — أسلوب مشوّق وعبرة في كل قصة</p>
+    <p class="meta"><b>+42 ألف متابع</b> · استوديو محتوى قصصي</p>
+
+    <div class="rule"></div>
+
+    <nav class="links">
+
+      <a class="link primary" href="mailto:quicktale798@gmail.com?subject=طلب%20تعاون%20تجاري">
+        <span class="ico">📩</span> للتعاون التجاري والإعلانات
+      </a>
+
+      <a class="link" href="mailto:quicktale798@gmail.com?subject=طلب%20إنتاج%20قصة">
+        <span class="ico">🎬</span> اطلب إنتاج قصة سينمائية لعلامتك
+      </a>
+
+      <a class="link" href="https://instagram.com/hikaya.studiopro" target="_blank" rel="noopener">
+        <span class="ico">📸</span> تابعني على إنستقرام
+      </a>
+
+      <a class="link" href="https://wa.me/966582228646?text=السلام%20عليكم،%20بخصوص%20تعاون%20مع%20حكاية" target="_blank" rel="noopener">
+        <span class="ico">💬</span> تواصل سريع عبر واتساب
+      </a>
+
+      <a class="link" href="guide.html">
+        <span class="ico">📚</span> دليل صانع القصص بالذكاء الاصطناعي
+      </a>
+
+      <a class="link" href="prompts.html">
+        <span class="ico">✨</span> حزمة برومبتات المحتوى الاحترافية
+      </a>
+
+    </nav>
+
+    <p class="footer">© <span>حكاية</span> · صُنع بشغف القصة</p>
+
+  </main>
+</body>
+</html>
